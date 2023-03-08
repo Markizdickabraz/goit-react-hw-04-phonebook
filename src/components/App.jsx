@@ -45,7 +45,7 @@ export default function App() {
       <div>
         <GlobalStyle />
         <h1>Phonebook</h1>
-        <ContactForm onSubmit={formSubmitHandler} />
+        <ContactForm onSubmitFunc={formSubmitHandler} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={chengeFilter} />
         {filtredComponents.length > 0 &&  <ContactList items={filtredComponents} onDeleteClick={deleteClick} />}

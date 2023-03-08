@@ -1,10 +1,11 @@
-// import React, { Component } from "react";
 import { useState } from "react";
 import { FormBtn, FormStyled, InputStyled, LabelStyled } from "./FormStyled";
+import PropTypes from 'prop-types';
 
-export default function ContactForm () {
 
-let state = []
+export default function ContactForm(props) {
+
+let data = []
     
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
@@ -21,14 +22,15 @@ let state = []
             default: return;
            } 
     }
+    
 
-    state = [{ name }, { number }]
-    console.log(state)
-
- const formSubmit = (e) => {
-     e.preventDefault();
-     
-     reset();
+    data = { name: { name }.name, number: { number }.number }
+    
+    const formSubmit = (e) => {
+        e.preventDefault();
+        props.onSubmitFunc(data)
+        reset();
+        
     }
   
     const reset = () => {
@@ -65,4 +67,8 @@ return (
     <FormBtn disabled={!name || !number} type='submit'>Add contact</FormBtn>
         </FormStyled>
 )
+}
+
+FormStyled.propTypes = {
+    onSubmitFunc : PropTypes.func.isRequired
 }
