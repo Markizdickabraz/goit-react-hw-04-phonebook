@@ -6,20 +6,12 @@ import GlobalStyle from "./globalStyled";
 
 export default function App() {
 
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(JSON.parse(window.localStorage.getItem('contacts')) ?? []);
   const [filter, setFilter] = useState('');
   
   const deleteClick = (name) => {
     setContacts(contacts.filter(contact => contact.name !== name))
   }
-
-  
-  useEffect(() => {
-    const localContacts = window.localStorage.getItem('contacts', contacts);
-    const contactsParse = JSON.parse(localContacts);
-      setContacts(contactsParse)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   useEffect(() => {
     window.localStorage.setItem('contacts', JSON.stringify(contacts))  

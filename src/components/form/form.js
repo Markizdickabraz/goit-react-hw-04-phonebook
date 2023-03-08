@@ -70,5 +70,5 @@ return (
 }
 
 FormStyled.propTypes = {
-    onSubmitFunc : PropTypes.func.isRequired
+    onSubmitFunc : PropTypes.func
 }
