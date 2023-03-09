@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FormBtn, FormStyled, InputStyled, LabelStyled } from "./FormStyled";
 import PropTypes from 'prop-types';
 
-
 export default function ContactForm(props) {
 
 let data = []
@@ -23,7 +22,6 @@ let data = []
            } 
     }
     
-
     data = { name: { name }.name, number: { number }.number }
     
     const formSubmit = (e) => {
@@ -37,7 +35,6 @@ let data = []
         setName('');
         setNumber('');
 }
-    
     
 return (
   <FormStyled onSubmit={formSubmit}>
